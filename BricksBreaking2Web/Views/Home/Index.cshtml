@@ -1,0 +1,42 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BricksBreaking</title>
+    <link rel="stylesheet" href="/css/style.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+
+</head>
+<body>
+<div class="center">
+    <div class="game-title-start">
+      <h1>Welcome</h1>
+      </div>
+      <form action="/Bricks/Play" method="post">
+        <div class="txt_field">
+          <input type="text" name="Player" required>
+          <span></span>
+          <label>Name:</label>
+        </div>
+        <div class="txt_field">
+          <input type="number" name="Row" required>
+          <span></span>
+          <label>Row:</label>
+        </div>
+        <div class="txt_field">
+          <input type="number" name="Column" required>
+          <span></span>
+          <label>Column:</label>
+        </div>
+        <input type="submit"  value="Start" /><br />
+      </form>
+
+    </div>
+
+</body>
+</html>

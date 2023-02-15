@@ -1,0 +1,98 @@
+﻿
+
+
+@model BrickseModel
+
+@using BricksBreaking2Web.Models
+
+
+
+@{
+    ViewData["Title"] = "Bricks";
+}
+<div class="game-title">
+    <h1>Bricks</h1>
+</div>
+<div class="game-info">
+    <h1> Score  = @Model.Field.score </h1>
+    <h1> Clicks = @Model.Field.click </h1>
+</div>
+
+
+
+
+
+<form action="/Puzzle/SaveScore" method="post">
+    Name: <input type="text" name="Player" /><br />
+    Score: <input type="number" name="Points" /><br />
+    <input type="submit" /><br />
+</form>
+
+
+<table>
+    @for (int row = 0; row < Model.Field.rowCount; row++)
+    {
+        <tr>
+            @for (int column = 0; column < Model.Field.columnCount; column++)
+            {
+                if (Model.Field.field[row, column] == null)
+                {
+                    <td />
+                }
+                <td>
+                    @if (Model.Field.field[row, column] == "1")
+                    {
+                        <a href="/Bricks/Destroy?x=@(row)&y=@(column)">
+                            <img src="/images/bricks/green.png" />
+                        </a>
+                    }
+                    @if (@Model.Field.field[row, column] == "2")
+                    {
+                        <a href="/Bricks/Destroy?x=@(row)&y=@(column)">
+                            <img src="/images/bricks/blue.png" />
+                        </a>
+                    }
+
+                    @if (@Model.Field.field[row, column] == "3")
+                    {
+                        <a href="/Bricks/Destroy?x=@(row)&y=@(column)">
+                            <img src="/images/bricks/yellow.png" />
+                        </a>
+                    }
+
+                    @if (@Model.Field.field[row, column] == "4")
+                    {
+                        <a href="/Bricks/Destroy?x=@(row)&y=@(column)">
+                            <img src="/images/bricks/red.png" />
+                        </a>
+                    }
+
+                    @if (@Model.Field.field[row, column] == "5")
+                    {
+                        <a href="/Bricks/Destroy?x=@(row)&y=@(column)">
+                            <img src="/images/bricks/cyan.png" />
+                        </a>
+                    }
+
+                    @if (@Model.Field.field[row, column] == "-")
+                    {
+                        <img src="/images/bricks/white.png" />
+                    }
+
+                </td>
+            }
+        </tr>
+    }
+
+
+</table>
+<a href="/Bricks">New Game</a>
+<br />
+
+
+
+<footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2022 - BricksBreaking2Web - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>

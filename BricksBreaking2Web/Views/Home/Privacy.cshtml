@@ -1,0 +1,69 @@
+﻿@model BricksBreaking2Core.Field
+
+@{
+    ViewData["Title"] = "Bricks";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title> BricksBreaking</title>
+    <link rel="stylesheet" href="/css/privacy.css"/>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    @{ int id = 0; }
+
+    <div class="game-main-win">
+
+        <div class="table-wrapper">
+            <h2>Top scores</h2>
+
+
+            <table class="fl-table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Player</th>
+                        <th>Clicks</th>
+                        <th>Score</th>
+                        <th>Date</th>
+                        <th>Comment</th>
+                    </tr>
+                </thead>
+
+                
+
+                @foreach (var stu in @Model.dataBases)
+                {
+                    
+                    id ++;
+                    <tr>
+                        <td>
+                            <p>@id</p>
+                        </td>
+                        <td>
+                            <p>@stu.Players</p>
+                        </td>
+                        <td>
+                            <p>@stu.Clicks</p>
+                        </td>
+                        <td>
+                            <p>@stu.Scores</p>
+                        </td>
+                        <td>
+                            <p>@stu.Dates</p>
+                        </td>
+                        <td>
+                            <p>@stu.Comment</p>
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</body>
+</html>

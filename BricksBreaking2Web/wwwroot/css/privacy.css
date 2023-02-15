@@ -1,0 +1,155 @@
+﻿html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-image: linear-gradient(30deg, #655b5a 5%, transparent 5%, transparent 5%, #655b5a 5%, #655b5a), linear-gradient(150deg, #655b5a 12%, transparent 12.5%, transparent 87%, #655b5a 87.5%, #655b5a), linear-gradient(30deg, #655b5a 12%, transparent 12.5%, transparent 87%, #655b5a 87.5%, #655b5a), linear-gradient(150deg, #655b5a 12%, transparent 12.5%, transparent 87%, #655b5a 87.5%, #655b5a), linear-gradient(60deg, #655b5a77 25%, transparent 25.5%, transparent 75%, #655b5a77 75%, #655b5a77), linear-gradient(60deg, #655b5a77 25%, transparent 25.5%, transparent 75%, #655b5a77 75%, #655b5a77);
+    
+}
+
+.game-main-win {
+    display: flex;
+    z-index: 1;
+    
+    padding: 20px 10px 30px 10px;
+    margin: auto;
+    align-items: center;
+    background-color: #fee6e3;
+    border: 2px solid #111;
+    border-radius: 8px;
+    box-sizing: border-box;
+    color: black;
+    justify-content: center;
+    height: auto;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    min-height: 300px;
+    overflow: hidden;
+}
+
+/*table*/
+
+
+.table-wrapper {
+    margin: 10px 70px 70px;
+    box-shadow: 0px 35px 50px rgba( 0, 0, 0, 0.2 );
+    border-radius: 0px;
+}
+
+.fl-table {
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: normal;
+    border: none;
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 100%;
+    white-space: nowrap;
+    background-color: white;
+}
+
+.fl-table td, .fl-table th {
+    text-align: center;
+    padding: 8px;
+}
+
+.fl-table td {
+    font-size: 12px;
+}
+
+    .fl-table thead th {
+        color: #ffffff;
+        background: #5b4f4e;
+    }
+
+
+        .fl-table thead th:nth-child(odd) {
+            color: #ffffff;
+            background: #3655b5a;
+        }
+
+.fl-table tr:nth-child(even) {
+    background: #F8F8F8;
+}
+
+/* Responsive */
+
+@media (max-width: 100%) {
+.fl-table {
+    display: block;
+    width: 100%;
+}
+
+.table-wrapper:before {
+    content: "Scroll horizontally >";
+    display: block;
+    text-align: right;
+    font-size: 11px;
+    color: white;
+    padding: 0 0 10px;
+}
+
+.fl-table thead, .fl-table tbody, .fl-table thead th {
+    display: block;
+}
+
+.fl-table thead th:last-child {
+    border-bottom: none;
+}
+
+.fl-table thead {
+    float: left;
+}
+
+.fl-table tbody {
+    width: auto;
+    position: relative;
+    overflow-x: auto;
+}
+
+.fl-table td, .fl-table th {
+    padding: 20px .625em .625em .625em;
+    height: 60px;
+    vertical-align: middle;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 120px;
+    font-size: 13px;
+    text-overflow: ellipsis;
+}
+
+.fl-table thead th {
+    text-align: left;
+}
+
+.fl-table tbody tr {
+    display: table-cell;
+}
+
+.fl-table tbody tr:nth-child(odd) {
+    background: none;
+}
+
+.fl-table tr:nth-child(even) {
+    background: transparent;
+}
+
+.fl-table tr td:nth-child(odd) {
+    background: #F8F8F8;
+}
+
+.fl-table tr td:nth-child(even) {
+}
+
+.fl-table tbody td {
+    display: block;
+    text-align: center;
+}
+}

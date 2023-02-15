@@ -1,0 +1,112 @@
+﻿@model BricksBreaking2Core.Field
+
+@{
+    ViewData["Title"] = "Bricks";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BricksBreaking</title>
+    <link rel="stylesheet" href="/css/style.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+    <div class="popka">
+        <div class="game-main">
+            <div class="game-title">
+                <h1>Bricks</h1>
+            </div>
+            <div class="game-info">
+                <div class="game-information">
+                    <h1> Score </h1>
+                    <h1> @Model.score </h1>
+                    <h1> Clicks </h1>
+                    <h1> @Model.click </h1>
+                </div>
+
+                <form action="/Bricks/SetComment" method="post">
+                    <div class="txt_field">
+                        <input type="text" name="comment_" required>
+                        <span></span>
+                        <label class="label-comment">Comment:</label>
+                        <input type="submit" class="sub" value="Set comment" /><br />
+                    </div>
+                </form>
+                <h4> You Comment: </h4>
+                <h4> @Model.newComment </h4>
+            </div>
+        </div>
+        <div class="game-plate">
+            <table class="game-table">
+                @for (int row = 0; row < @Model.rowCount; row++)
+                {
+                    <tr>
+                        @for (int column = 0; column < @Model.columnCount; column++)
+                        {
+                            if (@Model.field[row, column] == null)
+                            {
+                                <td />
+                            }
+                            <td>
+                                @if (@Model.field[row, column] == "1")
+                                {
+                                    <a href="/Bricks/Destroy?x=@(row)&y=@(column)">
+                                        <img src="/images/bricks/green.png" />
+                                    </a>
+                                }
+                                @if (@Model.field[row, column] == "2")
+                                {
+                                    <a href="/Bricks/Destroy?x=@(row)&y=@(column)">
+                                        <img src="/images/bricks/blue.png" />
+                                    </a>
+                                }
+
+                                @if (@Model.field[row, column] == "3")
+                                {
+                                    <a href="/Bricks/Destroy?x=@(row)&y=@(column)">
+                                        <img src="/images/bricks/yellow.png" />
+                                    </a>
+                                }
+
+                                @if (@Model.field[row, column] == "4")
+                                {
+                                    <a href="/Bricks/Destroy?x=@(row)&y=@(column)">
+                                        <img src="/images/bricks/red.png" />
+                                    </a>
+                                }
+
+                                @if (@Model.field[row, column] == "5")
+                                {
+                                    <a href="/Bricks/Destroy?x=@(row)&y=@(column)">
+                                        <img src="/images/bricks/cyan.png" />
+                                    </a>
+                                }
+
+                                @if (@Model.field[row, column] == "-")
+                                {
+                                    <img src="/images/bricks/white.png" />
+                                }
+
+                            </td>
+                        }
+                    </tr>
+                }
+
+
+            </table>
+        </div>
+        <button class="button-newgame" role="button"><a href="/Bricks/Reload">New Game</a></button>
+
+        <!--Change Color-->
+        <button class="button-newgame" role="button"><a href="/Bricks/ChangeColor">Change Color</a></button>
+        <br />
+    </div>
+
+
+</body>
+</html>
